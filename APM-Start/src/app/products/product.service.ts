@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { IProduct } from "./product";
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {catchError, tap} from 'rxjs/operators'
+import {catchError, tap, map} from 'rxjs/operators'
 
 
 @Injectable({
@@ -34,4 +34,6 @@ export class ProductService {
         console.error(errorMessage);
         return throwError(errorMessage);
     }
+
+    
 }
