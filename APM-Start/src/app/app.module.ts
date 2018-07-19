@@ -11,6 +11,7 @@ import { StarComponent } from './shared/star.component';
 import { ProductDetailComponent } from './products/product-detail.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailGuard } from './products/product-detail.guard';
+import { ProductModule } from './products/product.module';
 
 
 
@@ -18,24 +19,18 @@ import { ProductDetailGuard } from './products/product-detail.guard';
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ConvertToSpacesPipe,
-    StarComponent,
-    ProductDetailComponent,
     WelcomeComponent
     
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-     {path: 'products', component: ProductListComponent},
-     {path: 'products/:id',canActivate: [ProductDetailGuard] ,component: ProductDetailComponent,},
      {path: 'welcome', component: WelcomeComponent},
      {path: '', redirectTo: 'welcome', pathMatch: 'full'},
      {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
-    ])
+    ]),
+    ProductModule
 
   ],
   bootstrap: [AppComponent]
